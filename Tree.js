@@ -95,6 +95,60 @@ class Tree {
 
         return result;
     }
+
+    inOrder (result = [], root = this.root) {
+        if (root === null) {
+            return null;
+        }
+
+        if (root.left) {
+            this.inOrder(result, root.left);
+        }
+
+        result.push(root.data);
+
+        if (root.right) {
+            this.inOrder(result, root.right);
+        }
+
+        return result;
+    }
+
+    preOrder (result = [], root = this.root) {
+        if (root === null) {
+            return null;
+        }
+
+        result.push(root.data);
+
+        if (root.left) {
+            this.preOrder(result, root.left);
+        }
+
+        if (root.right) {
+            this.preOrder(result, root.right);
+        }
+
+        return result;
+    }
+
+    postOrder (result = [], root = this.root) {
+        if (root === null) {
+            return null;
+        }
+
+        if (root.left) {
+            this.postOrder(result, root.left);
+        }
+
+        if (root.right) {
+            this.postOrder(result, root.right);
+        }
+
+        result.push(root.data);
+
+        return result;
+    }
 }
 
 module.exports = Tree;
