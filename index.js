@@ -13,8 +13,9 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     }
 };
 
-let array = [2, 3, 6, 1, 9, 9, 3, 5, 7, 12, 5325, 345, 90];
+let array = [2, 3, 6, 1];
 
 const tree = new Tree(array);
 
 prettyPrint(tree.root);
+console.log(tree.levelOrder());
