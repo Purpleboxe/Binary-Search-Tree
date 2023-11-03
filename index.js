@@ -18,7 +18,4 @@ let array = [2, 3, 6, 1];
 const tree = new Tree(array);
 
 prettyPrint(tree.root);
-console.log(tree.levelOrder());
-console.log(tree.inOrder());
-console.log(tree.preOrder());
-console.log(tree.postOrder());
+console.log(tree.depth(tree.find(2)));

@@ -149,6 +149,37 @@ class Tree {
 
         return result;
     }
+
+    height (root = this.root) {
+        if (root === null) {
+            return null;
+        }
+
+        let leftHeight = this.height(root.left);
+        let rightHeight = this.height(root.right);
+
+        if (leftHeight > rightHeight) {
+            return leftHeight + 1;
+        } else {
+            return rightHeight + 1;
+        }
+    }
+
+    depth (node, root = this.root, depth = 0) {
+        if (node === null || root === null) {
+            return null;
+        }
+
+        if (root.data === node.data) {
+            return depth;
+        }
+
+        if (node.data < root.data) {
+            return this.depth(node, root.left, depth += 1);
+        } else {
+            return this.depth(node, root.right, depth += 1);
+        }
+    }
 }
 
 module.exports = Tree;
