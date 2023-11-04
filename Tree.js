@@ -180,6 +180,25 @@ class Tree {
             return this.depth(node, root.right, depth += 1);
         }
     }
+
+    isBalanced (root = this.root) {
+        const leftHeight = this.height(root.left);
+        const rightHeight = this.height(root.right);
+        const result = Math.abs(leftHeight - rightHeight);
+
+        if (result < 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    rebalance (root = this.root) {
+        let result = this.levelOrder([], [], root);
+        result.sort((a, b) => a - b);
+        
+        return this.root = this.buildTree(result);
+    }
 }
 
 module.exports = Tree;

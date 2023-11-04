@@ -13,9 +13,10 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     }
 };
 
-let array = [2, 3, 6, 1];
+let array = [2, 3, 6, 1, 5, 8, 9, 54, 21, 532, 34, 643, 69, 2034, 42, 235, 346, 457, 568];
 
 const tree = new Tree(array);
 
 prettyPrint(tree.root);
 console.log(tree.depth(tree.find(2)));
+console.log(tree.isBalanced());
