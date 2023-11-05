@@ -1,4 +1,5 @@
 const Tree = require('./Tree');
+const createArray = require('./createArray');
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
@@ -13,10 +14,26 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     }
 };
 
-let array = [2, 3, 6, 1, 5, 8, 9, 54, 21, 532, 34, 643, 69, 2034, 42, 235, 346, 457, 568];
+let arr = createArray(10);
 
-const tree = new Tree(array);
+console.log(arr);
+
+const tree = new Tree(arr);
 
 prettyPrint(tree.root);
-console.log(tree.depth(tree.find(2)));
 console.log(tree.isBalanced());
+console.log(tree.levelOrder());
+console.log(tree.preOrder());
+console.log(tree.postOrder());
+console.log(tree.inOrder());
+tree.insert(500);
+tree.insert(600);
+tree.insert(700);
+console.log(tree.isBalanced());
+tree.rebalance();
+console.log(tree.isBalanced());
+console.log(tree.levelOrder());
+console.log(tree.preOrder());
+console.log(tree.postOrder());
+console.log(tree.inOrder());
+prettyPrint(tree.root);
